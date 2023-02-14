@@ -9,6 +9,8 @@ import config.BrowserEnv;
 
 import com.github.javafaker.Faker;
 
+import static org.junit.Assert.assertEquals;
+
 public class SignUpTest {
 
     private WebDriver driver;
@@ -39,6 +41,7 @@ public class SignUpTest {
         objSignUpPage.waitForLoadElement(objSignUpPage.signUpButton);
         objSignUpPage.signUp(name, email, password);
         objLoginPage.waitForLoadSignInButton();
+        assertEquals("Вход", driver.findElement(objLoginPage.signInHeader).getText());
     }
 
     @Test
@@ -47,6 +50,7 @@ public class SignUpTest {
         objSignUpPage.waitForLoadElement(objSignUpPage.signUpButton);
         objSignUpPage.signUp(name, email, "test1");
         objSignUpPage.waitForLoadElement(objSignUpPage.passwordError);
+        assertEquals("Некорректный пароль", driver.findElement(objSignUpPage.passwordError).getText());
     }
 
     @After

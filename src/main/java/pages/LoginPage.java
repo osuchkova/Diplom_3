@@ -19,6 +19,8 @@ public class LoginPage {
 
     public final By signInButton = By.xpath(".//button[text()='Войти']");
 
+    public final By signInHeader = By.xpath(".//h2[text()='Вход']");
+
     public final By signUpButton = By.xpath(".//a[text()='Зарегистрироваться']");
 
     public final By restorePasswordButton = By.xpath(".//a[text()='Восстановить пароль']");

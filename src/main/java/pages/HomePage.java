@@ -13,6 +13,7 @@ public class HomePage {
         driver = webDriver;
     }
 
+    public final By constructorActive = By.xpath(".//a[@class='AppHeader_header__link__3D_hX AppHeader_header__link_active__1IkJo']/p[text()='Конструктор']");
     public final By constructorHeader = By.xpath(".//h1[text()='Соберите бургер']");
 
     public final By personalAccount = By.xpath(".//p[text()='Личный Кабинет']");
@@ -22,14 +23,14 @@ public class HomePage {
     public final By orderButton = By.xpath(".//button[text() = 'Оформить заказ']");
 
     public final By bunSection = By.xpath(".//div[@style='display: flex;']");
-    public final By sauceSection = By.xpath(".//span[text()='Соусы']");
-    public final By fillingSection = By.xpath(".//span[text()='Начинки']");
+    public final By sauceSection = By.xpath(".//div[@style='display: flex;']/div/span[text()='Соусы']");
+    public final By fillingSection = By.xpath(".//div[@style='display: flex;']/div/span[text()='Начинки']");
 
-    public final By bunSelected = By.xpath(".//h2[@class='text text_type_main-medium mb-6 mt-10' and text()='Булки']");
+    public final By bunSelected = By.xpath(".//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']/span[text()='Булки']");
 
-    public final By sauceSelected = By.xpath(".//h2[@class='text text_type_main-medium mb-6 mt-10' and text()='Соусы']");
+    public final By sauceSelected = By.xpath(".//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']/span[text()='Соусы']");
 
-    public final By fillingSelected = By.xpath(".//h2[@class='text text_type_main-medium mb-6 mt-10' and text()='Начинки']");
+    public final By fillingSelected = By.xpath(".//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']/span[text()='Начинки']");
 
     public void clickSignInButton() {
         driver.findElement(signInButton).click();

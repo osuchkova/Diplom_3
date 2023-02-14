@@ -5,6 +5,8 @@ import org.junit.After;
 import org.openqa.selenium.WebDriver;
 import pages.HomePage;
 
+import static org.junit.Assert.assertEquals;
+
 public class HomePageTest {
 
     private WebDriver driver;
@@ -21,8 +23,8 @@ public class HomePageTest {
     @Test
     public void shouldOpenBunSection() {
         objHomePage.waitForLoadElement(objHomePage.bunSection);
-        objHomePage.clickBunSection();
         objHomePage.waitForLoadElement(objHomePage.bunSelected);
+        assertEquals("Булки", driver.findElement(objHomePage.bunSelected).getText());
     }
 
     @Test
@@ -30,6 +32,7 @@ public class HomePageTest {
         objHomePage.waitForLoadElement(objHomePage.sauceSection);
         objHomePage.clickSauceSection();
         objHomePage.waitForLoadElement(objHomePage.sauceSelected);
+        assertEquals("Соусы", driver.findElement(objHomePage.sauceSelected).getText());
     }
 
     @Test
@@ -37,6 +40,7 @@ public class HomePageTest {
         objHomePage.waitForLoadElement(objHomePage.fillingSection);
         objHomePage.clickFillingSection();
         objHomePage.waitForLoadElement(objHomePage.fillingSelected);
+        assertEquals("Начинки", driver.findElement(objHomePage.fillingSelected).getText());
     }
 
     @After

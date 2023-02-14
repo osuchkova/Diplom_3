@@ -7,6 +7,8 @@ import pages.HomePage;
 import pages.LoginPage;
 import pages.PersonalAccountPage;
 
+import static org.junit.Assert.assertEquals;
+
 public class PersonalAccountTest {
 
     private WebDriver driver;
@@ -21,7 +23,7 @@ public class PersonalAccountTest {
         objHomePage = new HomePage(driver);
         objHomePage.clickSignInButton();
         objLoginPage = new LoginPage(driver);
-        objLoginPage.login("xyzshanoa@yandex.ru", "password");
+        objLoginPage.login("xyzshanoa@yandex.ru", "testtest1");
     }
 
     @Test
@@ -29,6 +31,7 @@ public class PersonalAccountTest {
         objHomePage.clickPersonalAccount();
         PersonalAccountPage obgAccountPage = new PersonalAccountPage(driver);
         obgAccountPage.waitForLoadProfile();
+        assertEquals("Профиль", driver.findElement(obgAccountPage.profile).getText());
     }
 
     @Test
@@ -37,7 +40,8 @@ public class PersonalAccountTest {
         PersonalAccountPage obgAccountPage = new PersonalAccountPage(driver);
         obgAccountPage.waitForLoadProfile();
         obgAccountPage.clickConstructor();
-        objHomePage.waitForLoadElement(objHomePage.constructorHeader);
+        objHomePage.waitForLoadElement(objHomePage.constructorActive);
+        assertEquals("Соберите бургер", driver.findElement(objHomePage.constructorHeader).getText());
     }
 
     @Test
@@ -46,7 +50,8 @@ public class PersonalAccountTest {
         PersonalAccountPage obgAccountPage = new PersonalAccountPage(driver);
         obgAccountPage.waitForLoadProfile();
         obgAccountPage.clickLogo();
-        objHomePage.waitForLoadElement(objHomePage.constructorHeader);
+        objHomePage.waitForLoadElement(objHomePage.constructorActive);
+        assertEquals("Соберите бургер", driver.findElement(objHomePage.constructorHeader).getText());
     }
 
     @Test
@@ -56,6 +61,7 @@ public class PersonalAccountTest {
         obgAccountPage.waitForLoadProfile();
         obgAccountPage.clickExitButton();
         objLoginPage.waitForLoadSignInButton();
+        assertEquals("Вход", driver.findElement(objLoginPage.signInHeader).getText());
     }
 
     @After

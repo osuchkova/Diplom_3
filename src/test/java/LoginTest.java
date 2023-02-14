@@ -8,6 +8,8 @@ import pages.LoginPage;
 import pages.RestorePassPage;
 import pages.SignUpPage;
 
+import static org.junit.Assert.assertEquals;
+
 public class LoginTest {
 
     private WebDriver driver;
@@ -27,16 +29,18 @@ public class LoginTest {
     public void shouldLoginViaSignInButton() {
         objHomePage.clickSignInButton();
         objLoginPage.waitForLoadSignInButton();
-        objLoginPage.login("xyzshanoa@yandex.ru", "password");
+        objLoginPage.login("xyzshanoa@yandex.ru", "testtest1");
         objHomePage.waitForLoadElement(objHomePage.orderButton);
+        assertEquals("Оформить заказ", driver.findElement(objHomePage.orderButton).getText());
     }
 
     @Test
     public void shouldLoginViaPersonalAccount() {
         objHomePage.clickPersonalAccount();
         objLoginPage.waitForLoadSignInButton();
-        objLoginPage.login("xyzshanoa@yandex.ru", "password");
+        objLoginPage.login("xyzshanoa@yandex.ru", "testtest1");
         objHomePage.waitForLoadElement(objHomePage.orderButton);
+        assertEquals("Оформить заказ", driver.findElement(objHomePage.orderButton).getText());
     }
 
     @Test
@@ -48,8 +52,9 @@ public class LoginTest {
         objSignUp.waitForLoadElement(objSignUp.signInButton);
         objSignUp.clickSignInButton();
         objLoginPage.waitForLoadSignInButton();
-        objLoginPage.login("xyzshanoa@yandex.ru", "password");
+        objLoginPage.login("xyzshanoa@yandex.ru", "testtest1");
         objHomePage.waitForLoadElement(objHomePage.orderButton);
+        assertEquals("Оформить заказ", driver.findElement(objHomePage.orderButton).getText());
     }
 
     @Test
@@ -61,8 +66,9 @@ public class LoginTest {
         objRestorePass.waitForLoadElement(objRestorePass.signInButton);
         objRestorePass.clickSignInButton();
         objLoginPage.waitForLoadSignInButton();
-        objLoginPage.login("xyzshanoa@yandex.ru", "password");
+        objLoginPage.login("xyzshanoa@yandex.ru", "testtest1");
         objHomePage.waitForLoadElement(objHomePage.orderButton);
+        assertEquals("Оформить заказ", driver.findElement(objHomePage.orderButton).getText());
     }
 
     @After
